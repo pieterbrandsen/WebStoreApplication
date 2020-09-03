@@ -1,0 +1,46 @@
+﻿@page
+@model WebStore.Pages.Admin.Products.AllProductsModel
+@{
+    ViewData["Title"] = "All Product";
+}
+
+<div style="margin-bottom: 2.5%">
+    <form style="float:right;" action="/Admin/Products/UploadNewProduct">
+        <input type="submit" value="Create New Product" />
+    </form>
+    <h2>All products</h2>
+</div>
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.productList[0].Title)</th>
+        <th>@Html.DisplayNameFor(model => model.productList[0].Price)</th>
+        <th>@Html.DisplayNameFor(model => model.productList[0].Visible)</th>
+        <th>Edit</th>
+        <th>Details</th>
+    </tr>
+    @foreach (var product in Model.productList)
+    {
+        <tr>
+            <td>
+                @product.Title
+            </td>
+            <td>
+                @product.Price
+            </td>
+            <td>
+                @product.Visible
+            </td>
+            <td>
+                <a class="page-link" asp-page="./ProductEdit" asp-route-id="@product.Id">
+                    Edit
+                </a>
+            </td>
+            <td>
+                <a class="page-link" asp-page="./ProductDetails" asp-route-id="@product.Id">
+                    Details
+                </a>
+            </td>
+        </tr>
+    }
+</table>

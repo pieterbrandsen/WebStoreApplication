@@ -1,0 +1,29 @@
+﻿.product-container {
+    margin: 0px 5%;
+    height: auto;
+    width: auto;
+}
+
+.product {
+    width: 33%;
+    height: 250px;
+    float: left;
+}
+    .product img {
+        max-height: 100%;
+        max-width: 100%;
+        height: 75%;
+        margin: 0 auto;
+        display: block;
+        padding: 10px 10%;
+    }
+.product p {
+    height: 10%;
+    margin-bottom:0px;
+    text-align:center;
+}
+
+
+/*body .container {
+   min-height: 5000px !important;
+}*/

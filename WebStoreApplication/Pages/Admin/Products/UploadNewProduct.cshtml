@@ -1,0 +1,152 @@
+﻿@page
+@model WebStore.Pages.Admin.Products.UploadNewProductModel
+@{
+    ViewData["Title"] = "Upload Product";
+}
+
+
+<style type="text/css">
+    .form-style-2 {
+        max-width: 500px;
+        padding: 20px 12px 10px 20px;
+        font: 13px Arial, Helvetica, sans-serif;
+    }
+
+    .form-style-2-heading {
+        font-weight: bold;
+        font-style: italic;
+        border-bottom: 2px solid #ddd;
+        margin-bottom: 20px;
+        font-size: 15px;
+        padding-bottom: 3px;
+    }
+
+    .form-style-2 label {
+        display: block;
+        margin: 0px 0px 15px 0px;
+    }
+
+        .form-style-2 label > span {
+            width: 200px;
+            font-weight: bold;
+            float: left;
+            padding-top: 8px;
+            padding-right: 10px;
+        }
+
+    .form-style-2 span.required {
+        color: red;
+    }
+
+    .form-style-2 .tel-number-field {
+        width: 40px;
+        text-align: center;
+    }
+
+    .form-style-2 input.input-field, .form-style-2 .select-field {
+        width: 48%;
+    }
+
+    .form-style-2 input.input-field,
+    .form-style-2 .tel-number-field,
+    .form-style-2 .textarea-field,
+    .form-style-2 .select-field {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        border: 1px solid #C2C2C2;
+        box-shadow: 1px 1px 4px #EBEBEB;
+        -moz-box-shadow: 1px 1px 4px #EBEBEB;
+        -webkit-box-shadow: 1px 1px 4px #EBEBEB;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        padding: 7px;
+        outline: none;
+    }
+
+        .form-style-2 .input-field:focus,
+        .form-style-2 .tel-number-field:focus,
+        .form-style-2 .textarea-field:focus,
+        .form-style-2 .select-field:focus {
+            border: 1px solid #0C0;
+        }
+
+    .form-style-2 .textarea-field {
+        height: 100px;
+        width: 55%;
+    }
+
+    .form-style-2 input[type=submit],
+    .form-style-2 input[type=button] {
+        border: none;
+        padding: 8px 15px 8px 15px;
+        background: #FF8500;
+        color: #fff;
+        box-shadow: 1px 1px 4px #DADADA;
+        -moz-box-shadow: 1px 1px 4px #DADADA;
+        -webkit-box-shadow: 1px 1px 4px #DADADA;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+    }
+
+        .form-style-2 input[type=submit]:hover,
+        .form-style-2 input[type=button]:hover {
+            background: #EA7B00;
+            color: #fff;
+        }
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    /* Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+</style>
+
+
+@if (Model.createdProduct)
+{
+    <div>
+        <h3>
+            Product successfully created!
+        </h3>
+        <h5>
+            Please refresh this page to make new product.
+        </h5>
+    </div>
+}
+else
+{
+    <div style="margin-bottom: 2.5%">
+        <form style="float:right; padding-right: 10px;" action="/Admin/Products/AllProducts">
+            <input type="submit" value="Return To Product List" />
+        </form>
+        <h4>Please fill in product information with photo's</h4>
+        <h4>All information can be editied later</h4>
+    </div>
+
+    <div class="form-style-2">
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-style-2-heading">Product information</div>
+            <label for="Title"><span> Product title <span class="required">*</span></span><input required type="text" placeholder="Title" asp-for="Title" /></label>
+            <label for="Description"><span>Product description <span class="required">*</span></span><input required type="text" placeholder="Description" asp-for="Description" /></label>
+            <label for="Price"><span>Product price <span class="required">*</span></span><input required type="number" step="0.01" placeholder="Price" asp-for="Price" /></label>
+            <label for="Visible"><span>Visible <span class="required">*</span></span><select><option value="True" selected>True</option><option value="False">False</option></select></label>
+
+            <br />
+            <div class="form-style-2-heading">Product photo's</div>
+            <label for="Upload"><span>Upload</span><input type="file" asp-for="Upload" /></label>
+            <label for="Upload2"><span>Upload2</span><input type="file" asp-for="Upload2" /></label>
+            <label for="Upload3"><span>Upload3</span><input type="file" asp-for="Upload3" /></label>
+            <label for="Upload4"><span>Upload4</span><input type="file" asp-for="Upload4" /></label>
+            <label for="Upload5"><span>Upload5</span><input type="file" asp-for="Upload5" /></label>
+
+            <input type="submit" value="Submit Product" />
+        </form>
+    </div>
+}

@@ -1,0 +1,55 @@
+﻿@page "{title}"
+@model WebStore.Pages.Products.ProductPage
+@{
+    ViewData["Title"] = Model.Product.Title;
+}
+
+<style>
+    .header {
+        width: 100%;
+        height: 100px;
+    }
+    .header h4 {
+        padding: 45px 5%;
+        display: block;
+        margin-bottom: 0px;
+    }
+
+    .product-container {
+        margin: 5% 0px;
+        display: flex;
+    }
+        .product-container div {
+            width: 50%;
+            max-width: 50%;
+            flex: 1;
+            min-height: 500px;
+        }
+    .product-container .float-left {
+        background-color: aliceblue;
+        padding: 50px;
+    }
+    .product-container .float-right {
+        padding-left: 50px;
+    }
+    .product-container .float-left img {
+        width: 100%;
+    }
+
+</style>
+
+<div class="header">
+    <h4>@Model.Product.Title</h4>
+</div>
+<div class="product-container">
+    <div class="float-left">
+        <img src="\@Model.Product.FilePath" />
+    </div>
+    <div class="float-right">
+        <p>$ @Model.Product.Price</p>
+        <hr class="solid">
+
+        <img src="https://bashooka.com/wp-content/uploads/2016/02/wp-product-page-designs-4.jpg"/>
+    </div>
+    <br style="clear: both;" />
+</div>
