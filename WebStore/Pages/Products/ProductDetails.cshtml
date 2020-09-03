@@ -1,0 +1,79 @@
+﻿@page "{id}"
+@model WebStore.Pages.Products.ProductDetailsModel
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<div style="margin-bottom: 2.5%">
+    <form style="float:right; background-color:lightgray" action="/Products/ProductEdit/@Model.Input.ProductModel.Id">
+        <input type="submit" value="Edit Product" />
+    </form>
+    <h2>Product details</h2>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            Title
+        </th>
+        <td>
+            @Model.Input.ProductModel.Title
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Description
+        </th>
+        <td>
+            @Model.Input.ProductModel.Description
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Price
+        </th>
+        <td>
+            @Model.Input.ProductModel.Price
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Photo 1
+        </th>
+        <td>
+            <img src="\@Model.Input.ProductModel.FilePath" />
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Photo 2
+        </th>
+        <td>
+            <img src="\@Model.Input.ProductModel.FilePath2" />
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Photo 3
+        </th>
+        <td>
+            <img src="\@Model.Input.ProductModel.FilePath3" />
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Photo 4
+        </th>
+        <td>
+            <img src="\@Model.Input.ProductModel.FilePath4" />
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Photo 5
+        </th>
+        <td>
+            <img src="\@Model.Input.ProductModel.FilePath5" />
+        </td>
+    </tr>
+</table>
