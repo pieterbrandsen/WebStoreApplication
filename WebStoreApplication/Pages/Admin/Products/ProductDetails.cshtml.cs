@@ -46,8 +46,24 @@ namespace WebStore.Pages.Admin.Products
                 ProductModel = _db.ProductModel.FirstOrDefault(p => p.Id == Id),
             };
 
-            DescriptionList = Input.ProductModel.Description.Split("<br>");
-            AdditionalInformationList = Input.ProductModel.AdditionalInformation.Split("<br>");
+            if (Input.ProductModel.Description != null)
+            {
+                DescriptionList = Input.ProductModel.Description.Split("<br>");
+            }
+            else
+            {
+                DescriptionList[0] = Input.ProductModel.Description;
+            }
+
+            if (Input.ProductModel.AdditionalInformation != null)
+            {
+                AdditionalInformationList = Input.ProductModel.AdditionalInformation.Split("<br>");
+            }
+            else
+            {
+                AdditionalInformationList[0] = Input.ProductModel.AdditionalInformation;
+            }
+
 
             return Page();
         }

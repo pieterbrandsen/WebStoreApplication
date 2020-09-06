@@ -39,10 +39,13 @@
             Description
         </th>
         <td>
-            @foreach (var item in Model.DescriptionList)
+            @if (Model.DescriptionList != null)
             {
-                @item
-                <br />
+                @foreach (var item in Model.DescriptionList)
+                {
+                    @item
+                    <br />
+                }
             }
         </td>
     </tr>
@@ -51,11 +54,15 @@
             Additional Information
         </th>
         <td>
-            @foreach (var item in Model.AdditionalInformationList)
+            @if (Model.AdditionalInformationList != null)
             {
-                @item
-                <br />
+                @foreach (var item in Model.AdditionalInformationList)
+                {
+                    @item
+                    <br />
+                }
             }
+
         </td>
     </tr>
     <tr>
