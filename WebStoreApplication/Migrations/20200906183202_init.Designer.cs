@@ -10,8 +10,8 @@ using WebStore.Data;
 namespace WebStore.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200906173709_ListNames")]
-    partial class ListNames
+    [Migration("20200906183202_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -495,7 +495,7 @@ Quisque ut luctus odio. Fusce a massa semper, ullamcorper justo ac, porttitor ve
                     b.HasData(
                         new
                         {
-                            Id = "47676cae-9b83-465d-b4f5-6c39fb33245a",
+                            Id = "a5e01d91-859d-4d83-9816-e59299bf1dd6",
                             LayoutNumber = 1,
                             PageModelName = "IndexPageModel",
                             PageName = "Index",
@@ -518,7 +518,7 @@ Quisque ut luctus odio. Fusce a massa semper, ullamcorper justo ac, porttitor ve
                     b.HasData(
                         new
                         {
-                            Id = "3ff823cf-5e67-473c-9d83-952612ac0593",
+                            Id = "03ee1e58-055c-4824-8bbd-320a22258944",
                             LayoutNumber = 1,
                             PageModelName = "ProductPageModel",
                             PageName = "ProductPage"
