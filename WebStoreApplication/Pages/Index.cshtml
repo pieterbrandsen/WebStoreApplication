@@ -3,55 +3,37 @@
 @{ ViewData["Title"] = "Home page"; }
 
 
-<div>
+<div class="indexProductContainer">
 
-</div>
-<br>
-
-<div class="product-container">
-    <h3>Our Top Products</h3>
-    <a href="/Products/ProductPage/Product 2">
-        <div class="product">
-            <img src="~/Products/Product 2/G.png" />
-            <p>Product Name 1</p>
-            <p>$ 10</p>
+    @if (Model.TopProductList != null)
+    {
+<h3>Our Top Selling Products</h3> foreach (var product in Model.TopProductList)
+                {
+<div class="indexProductDisplay">
+    <a href="/Products/ProductPage/@product.Title">
+        <div>
+            <img class="indexProductDisplayImage" src="@product.FilePath" />
+            <p class="indexProductDisplayText">@product.Title</p>
+            <p class="indexProductDisplayText">$ @product.Price</p>
         </div>
     </a>
-    @*<div class="product">
-        <img src="~/Products/cb67f7b2-8d7f-4910-8268-e1a599a6cb5b/UO.jpg" />
-        <p>Product Name 2</p>
-        <p>$ 200</p>
-    </div>
-    <div class="product">
-        <img style="height:80%" src="~/Products/cb67f7b2-8d7f-4910-8268-e1a599a6cb5b/ZO.jpg" />
-        <p>Product Name 3</p>
-        <p>$ 3000</p>
-    </div>*@
+</div>}
+}
     <br style="clear: both;" />
-</div>
-
-<br />
-<br />
-<br />
-<br />
-<br />
-
-@*<div class="product-container">
-    <h3>Our Best Selling Products</h3>
-    <div class="product">
-        <img src="~/Products/cb67f7b2-8d7f-4910-8268-e1a599a6cb5b/LH2O.jpg" />
-        <p>Product Name 1</p>
-        <p>$ 10</p>
-    </div>
-    <div class="product">
-        <img src="~/Products/cb67f7b2-8d7f-4910-8268-e1a599a6cb5b/XUHO2.jpg" />
-        <p>Product Name 2</p>
-        <p>$ 200</p>
-    </div>
-    <div class="product">
-        <img src="~/Products/cb67f7b2-8d7f-4910-8268-e1a599a6cb5b/LH2O.jpg" />
-        <p>Product Name 3</p>
-        <p>$ 3000</p>
-    </div>
+    <br />
+    <br />
+    @if (Model.TrendingProductList != null)
+    {
+<h3>Our Top Trending Products</h3> foreach (var product in Model.TrendingProductList)
+                {
+<div class="indexProductDisplay">
+    <a href="/Products/ProductPage/@product.Title">
+        <div>
+            <img class="indexProductDisplayImage" src="@product.FilePath" />
+            <p class="indexProductDisplayText">@product.Title</p>
+            <p class="indexProductDisplayText">$ @product.Price</p>
+        </div>
+    </a>
+</div>}
+}
     <br style="clear: both;" />
-</div>*@

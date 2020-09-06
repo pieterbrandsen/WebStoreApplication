@@ -16,8 +16,11 @@ namespace WebStore.Pages.Admin.Products
     [Authorize(Roles = RoleNames.Admin)]
     public class AllProductsModel : PageModel
     {
+#pragma warning disable IDE0052 // Remove unread private members
         private readonly IWebHostEnvironment _environment;
+#pragma warning disable IDE0052 // Remove unread private members
         private readonly UserManager<IdentityUser> _userManager;
+#pragma warning restore IDE0052 // Remove unread private members
         private readonly ApplicationDbContext _db;
 
         public List<ProductModel> productList = new List<ProductModel>();
@@ -41,6 +44,7 @@ namespace WebStore.Pages.Admin.Products
         public async Task<IActionResult> OnGetAsync()
         {
             productList = await _db.ProductModel.ToListAsync();
+            productList.Sort((a, b) => { return a.Title.CompareTo(b.Title); });
 
             return Page();
         }

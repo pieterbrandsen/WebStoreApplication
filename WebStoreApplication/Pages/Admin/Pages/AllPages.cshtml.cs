@@ -7,19 +7,24 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using WebStore.Data;
 using WebStore.Models;
 
-namespace WebStore.Pages.Admin.Products
+namespace WebStore.Pages.Admin.Pages
 {
     [Authorize(Roles = RoleNames.Admin)]
-    public class ProductDetailsModel : PageModel
+    public class AllPagesModel : PageModel
     {
+#pragma warning disable IDE0052 // Remove unread private members
         private readonly IWebHostEnvironment _environment;
+#pragma warning disable IDE0052 // Remove unread private members
         private readonly UserManager<IdentityUser> _userManager;
+#pragma warning restore IDE0052 // Remove unread private members
         private readonly ApplicationDbContext _db;
 
-        public ProductDetailsModel(IWebHostEnvironment environment,
+        public List<PagesModel> PageList = new List<PagesModel>();
+        public AllPagesModel(IWebHostEnvironment environment,
                                 UserManager<IdentityUser> userManager,
                                 ApplicationDbContext db)
         {
@@ -28,26 +33,17 @@ namespace WebStore.Pages.Admin.Products
             _db = db;
         }
 
-        public ProductModel product;
-        public string[] DescriptionList;
-        public string[] AdditionalInformationList;
-
-        [BindProperty]
-        public InputModel Input { get; set; }
         public class InputModel
         {
-            public ProductModel ProductModel { get; set; }
+            public string Id { get; set; }
+            public string Title { get; set; }
+            public string Price { get; set; }
+            public string Visible { get; set; }
         }
 
-        public IActionResult OnGet(string Id)
+        public async Task<IActionResult> OnGetAsync()
         {
-            Input = new InputModel
-            {
-                ProductModel = _db.ProductModel.FirstOrDefault(p => p.Id == Id),
-            };
-
-            DescriptionList = Input.ProductModel.Description.Split("<br>");
-            AdditionalInformationList = Input.ProductModel.AdditionalInformation.Split("<br>");
+            PageList = await _db.PageModel.ToListAsync();
 
             return Page();
         }

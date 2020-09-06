@@ -1,0 +1,39 @@
+﻿@page
+@model WebStore.Pages.Admin.Pages.AllPagesModel
+@{
+    ViewData["Title"] = "All Pages";
+}
+
+<div style="margin-bottom: 2.5%">
+    <h2>All pages</h2>
+</div>
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.PageList[0].PageName)</th>
+        <th>@Html.DisplayNameFor(model => model.PageList[0].LayoutNumber)</th>
+        <th>Edit</th>
+        <th>Details</th>
+    </tr>
+    @foreach (var item in Model.PageList)
+    {
+        <tr>
+            <td>
+                @item.PageName
+            </td>
+            <td>
+                @item.LayoutNumber
+            </td>
+            <td>
+                <a class="page-link" asp-page="./PageEdit" asp-route-id="@item.Id">
+                    Edit
+                </a>
+            </td>
+            <td>
+                <a class="page-link" asp-page="./PageDetails" asp-route-id="@item.Id">
+                    Details
+                </a>
+            </td>
+        </tr>
+    }
+</table>

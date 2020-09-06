@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 
 namespace WebStore.Models
 {
-    public class FileModel
+    public class PagesModel
     {
         public string Id { get; set; }
-        public string FilePath { get; set; }
+        public string PageModelName { get; set; }
+        public string PageName { get; set; }
+        public int LayoutNumber { get; set; }
     }
 }

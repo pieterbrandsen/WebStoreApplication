@@ -27,10 +27,14 @@ namespace WebStore.Pages.Products
         }
 
         public ProductModel Product;
+        public string[] DescriptionList;
+        public string[] AdditionalInformationList;
 
         public IActionResult OnGet(string Title)
         {
-             Product = _db.ProductModel.FirstOrDefault(p => p.Title == Title);
+            Product = _db.ProductModel.FirstOrDefault(p => p.Title == Title);
+            DescriptionList = Product.Description.Split("<br>");
+            AdditionalInformationList = Product.AdditionalInformation.Split("<br>");
 
             return Page();
         }

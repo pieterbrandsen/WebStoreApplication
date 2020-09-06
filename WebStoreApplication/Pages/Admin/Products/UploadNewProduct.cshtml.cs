@@ -69,7 +69,7 @@ namespace WebStore.Pages.Admin.Products
                             await Upload.CopyToAsync(fileStream);
                     }
 
-                    productList.Add(Path.Combine("Products", Title, Path.GetFileName(file)));
+                    productList.Add(Path.Combine(@"\Products", Title, Path.GetFileName(file)));
                 }
 
 
@@ -82,7 +82,7 @@ namespace WebStore.Pages.Admin.Products
                             await Upload2.CopyToAsync(fileStream);
                     }
 
-                    productList.Add(Path.Combine("Products", Title, Path.GetFileName(file)));
+                    productList.Add(Path.Combine(@"\Products", Title, Path.GetFileName(file)));
                 }
 
 
@@ -95,7 +95,7 @@ namespace WebStore.Pages.Admin.Products
                             await Upload3.CopyToAsync(fileStream);
                     }
 
-                    productList.Add(Path.Combine("Products", Title, Path.GetFileName(file)));
+                    productList.Add(Path.Combine(@"\Products", Title, Path.GetFileName(file)));
                 }
 
 
@@ -108,7 +108,7 @@ namespace WebStore.Pages.Admin.Products
                             await Upload4.CopyToAsync(fileStream);
                     }
 
-                    productList.Add(Path.Combine("Products", Title, Path.GetFileName(file)));
+                    productList.Add(Path.Combine(@"\Products", Title, Path.GetFileName(file)));
                 }
 
 
@@ -121,7 +121,7 @@ namespace WebStore.Pages.Admin.Products
                             await Upload5.CopyToAsync(fileStream);
                     }
 
-                    productList.Add(Path.Combine("Products", Title, Path.GetFileName(file)));
+                    productList.Add(Path.Combine(@"\Products", Title, Path.GetFileName(file)));
                 }
 
                 for (int i = 0; i < 5; i++)

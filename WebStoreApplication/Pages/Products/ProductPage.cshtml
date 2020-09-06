@@ -4,52 +4,83 @@
     ViewData["Title"] = Model.Product.Title;
 }
 
-<style>
-    .header {
-        width: 100%;
-        height: 100px;
-    }
-    .header h4 {
-        padding: 45px 5%;
-        display: block;
-        margin-bottom: 0px;
+
+<script @*type="module"*@>
+    /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+    function dropdownFunction() {
+        document.getElementById("dropdown").classList.toggle("show");
     }
 
-    .product-container {
-        margin: 5% 0px;
-        display: flex;
-    }
-        .product-container div {
-            width: 50%;
-            max-width: 50%;
-            flex: 1;
-            min-height: 500px;
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+        if (event.target.matches('dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+                else {
+                    openDropdown.classList.add('show');
+                }
+            }
         }
-    .product-container .float-left {
-        background-color: aliceblue;
-        padding: 50px;
-    }
-    .product-container .float-right {
-        padding-left: 50px;
-    }
-    .product-container .float-left img {
-        width: 100%;
     }
 
-</style>
+    window.onload = function () {
+        DescriptionFunction();
+    }
+    function DescriptionFunction() {
+    }
+    //function ReplaceHTMLWithLineBreaks(string) {
+    //    let changedString = string;
+    //    changedString ='<br>';
 
-<div class="header">
-    <h4>@Model.Product.Title</h4>
+    //    const regex = /<br>/gi;
+
+    //    changedString = changedString.replace(regex, "test");
+    //    return changedString;
+    //}
+
+
+</script>
+
+<div class="productPageHeader">
+    <h4>- @Model.Product.Title</h4>
 </div>
-<div class="product-container">
-    <div class="float-left">
-        <img src="\@Model.Product.FilePath" />
+<div class="productPageContainer">
+    <div class="float-left productPageContainerDivs">
+        <img src="@Model.Product.FilePath" />
     </div>
-    <div class="float-right">
+    <div class="float-right productPageContainerDivs">
         <p>$ @Model.Product.Price</p>
-        <hr class="solid">
-
-        <img src="https://bashooka.com/wp-content/uploads/2016/02/wp-product-page-designs-4.jpg"/>
+        <hr class="solid" style="border-width:4px;">
+        <form>
+            <input type="number" value="1" />
+            <input type="submit" value="Add To Cart" />
+        </form>
+        <hr class="solid" style="border-width:4px;">
+        <p>
+            @foreach (var item in Model.DescriptionList)
+            {
+                @item
+                <br />
+            }
+        </p>
+        <hr class="solid" style="border-width:4px;">
+        <div class="dropdown">
+            <button onclick="dropdownFunction()" class="dropbtn">Additional Information</button>
+            <div id="dropdown" class="dropdown-content">
+                @foreach (var item in Model.AdditionalInformationList)
+                {
+                    @item
+                    <br />
+                }
+            </div>
+        </div>
+        <hr class="solid" style="border-width:4px;">
     </div>
     <br style="clear: both;" />
 </div>

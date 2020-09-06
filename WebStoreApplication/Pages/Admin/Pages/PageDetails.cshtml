@@ -1,0 +1,67 @@
+﻿@page "{id}"
+@model WebStore.Pages.Admin.Pages.PageDetailsModel
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<div style="margin-bottom: 2.5%">
+    <form style="float:right; padding-right: 10px;" action="/Admin/Pages/PageEdit/@Model.Input.PageModel.Id">
+        <input type="submit" value="Edit Page" />
+    </form>
+    <form style="float:right; padding-right: 10px;" action="/Admin/Pages/AllPages">
+        <input type="submit" value="Return To Pages List" />
+    </form>
+    <h2>Product details</h2>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            Page Name
+        </th>
+        <td>
+            @Model.Input.PageModel.PageName
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Layout Number
+        </th>
+        <td>
+            @Model.Input.PageModel.LayoutNumber
+        </td>
+    </tr>
+    @if (Model.Input.IndexPageModel != null)
+    {
+<tr>
+    <th>
+        Header Path
+    </th>
+    <td>
+        <img style="max-width: 100%" src="@Model.Input.IndexPageModel.HeaderPhoto"/>
+        Path: @Model.Input.IndexPageModel.HeaderPhoto
+    </td>
+</tr>
+<tr>
+    <th>
+        Top Product List
+    </th>
+    <td>
+        @Model.Input.IndexPageModel.TopProductName1<br />
+        @Model.Input.IndexPageModel.TopProductName2<br />
+        @Model.Input.IndexPageModel.TopProductName3
+    </td>
+</tr>
+        <tr>
+            <th>
+                Trending Product List
+            </th>
+            <td>
+                @Model.Input.IndexPageModel.TrendingProductName1<br />
+                @Model.Input.IndexPageModel.TrendingProductName2<br />
+                @Model.Input.IndexPageModel.TrendingProductName3
+
+            </td>
+        </tr>
+    }
+</table>

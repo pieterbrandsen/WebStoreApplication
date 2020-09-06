@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebStore.Data;
 
 namespace WebStore.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200906173501_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -493,17 +495,17 @@ Quisque ut luctus odio. Fusce a massa semper, ullamcorper justo ac, porttitor ve
                     b.HasData(
                         new
                         {
-                            Id = "47676cae-9b83-465d-b4f5-6c39fb33245a",
+                            Id = "4059b069-509a-4f1b-b7dd-72f356e10b53",
                             LayoutNumber = 1,
                             PageModelName = "IndexPageModel",
                             PageName = "Index",
                             HeaderPhoto = "https://insidesmallbusiness.com.au/wp-content/uploads/2018/04/brad-header-placeholder.png",
-                            TopProductName1 = "Default Product 1",
-                            TopProductName2 = "Default Product 2",
-                            TopProductName3 = "Default Product 3",
-                            TrendingProductName1 = "Default Product 4",
-                            TrendingProductName2 = "Default Product 5",
-                            TrendingProductName3 = "Default Product 6"
+                            TopProductName1 = "1",
+                            TopProductName2 = "2",
+                            TopProductName3 = "3",
+                            TrendingProductName1 = "4",
+                            TrendingProductName2 = "5",
+                            TrendingProductName3 = "6"
                         });
                 });
 
@@ -516,7 +518,7 @@ Quisque ut luctus odio. Fusce a massa semper, ullamcorper justo ac, porttitor ve
                     b.HasData(
                         new
                         {
-                            Id = "3ff823cf-5e67-473c-9d83-952612ac0593",
+                            Id = "2f922c23-6966-4b2d-9743-07e1360008b3",
                             LayoutNumber = 1,
                             PageModelName = "ProductPageModel",
                             PageName = "ProductPage"

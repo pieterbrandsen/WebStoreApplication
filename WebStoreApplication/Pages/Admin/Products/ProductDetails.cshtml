@@ -20,6 +20,14 @@
 <table class="table">
     <tr>
         <th>
+            Id
+        </th>
+        <td>
+            @Model.Input.ProductModel.Id
+        </td>
+    </tr>
+    <tr>
+        <th>
             Title
         </th>
         <td>
@@ -31,7 +39,23 @@
             Description
         </th>
         <td>
-            @Model.Input.ProductModel.Description
+            @foreach (var item in Model.DescriptionList)
+            {
+                @item
+                <br />
+            }
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Additional Information
+        </th>
+        <td>
+            @foreach (var item in Model.AdditionalInformationList)
+            {
+                @item
+                <br />
+            }
         </td>
     </tr>
     <tr>
@@ -47,7 +71,7 @@
             Photo 1
         </th>
         <td>
-            <img src="\@Model.Input.ProductModel.FilePath" />
+            <img src="@Model.Input.ProductModel.FilePath" />
         </td>
     </tr>
     <tr>
@@ -55,7 +79,7 @@
             Photo 2
         </th>
         <td>
-            <img src="\@Model.Input.ProductModel.FilePath2" />
+            <img src="@Model.Input.ProductModel.FilePath2" />
         </td>
     </tr>
     <tr>
@@ -63,7 +87,7 @@
             Photo 3
         </th>
         <td>
-            <img src="\@Model.Input.ProductModel.FilePath3" />
+            <img src="@Model.Input.ProductModel.FilePath3" />
         </td>
     </tr>
     <tr>
@@ -71,7 +95,7 @@
             Photo 4
         </th>
         <td>
-            <img src="\@Model.Input.ProductModel.FilePath4" />
+            <img src="@Model.Input.ProductModel.FilePath4" />
         </td>
     </tr>
     <tr>
@@ -79,7 +103,7 @@
             Photo 5
         </th>
         <td>
-            <img src="\@Model.Input.ProductModel.FilePath5" />
+            <img src="@Model.Input.ProductModel.FilePath5" />
         </td>
     </tr>
 </table>

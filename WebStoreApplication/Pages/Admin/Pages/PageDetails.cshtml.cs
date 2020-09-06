@@ -10,16 +10,16 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using WebStore.Data;
 using WebStore.Models;
 
-namespace WebStore.Pages.Admin.Products
+namespace WebStore.Pages.Admin.Pages
 {
     [Authorize(Roles = RoleNames.Admin)]
-    public class ProductDetailsModel : PageModel
+    public class PageDetailsModel : PageModel
     {
         private readonly IWebHostEnvironment _environment;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ApplicationDbContext _db;
 
-        public ProductDetailsModel(IWebHostEnvironment environment,
+        public PageDetailsModel(IWebHostEnvironment environment,
                                 UserManager<IdentityUser> userManager,
                                 ApplicationDbContext db)
         {
@@ -28,26 +28,36 @@ namespace WebStore.Pages.Admin.Products
             _db = db;
         }
 
-        public ProductModel product;
-        public string[] DescriptionList;
-        public string[] AdditionalInformationList;
-
         [BindProperty]
         public InputModel Input { get; set; }
         public class InputModel
         {
-            public ProductModel ProductModel { get; set; }
+            public PagesModel PageModel { get; set; }
+            public IndexPageModel IndexPageModel { get; set; }
+            public ProductPageModel ProductPageModel { get; set; }
         }
 
         public IActionResult OnGet(string Id)
         {
-            Input = new InputModel
-            {
-                ProductModel = _db.ProductModel.FirstOrDefault(p => p.Id == Id),
-            };
+            var page = _db.PageModel.FirstOrDefault(p => p.Id == Id);
 
-            DescriptionList = Input.ProductModel.Description.Split("<br>");
-            AdditionalInformationList = Input.ProductModel.AdditionalInformation.Split("<br>");
+            if (page.PageModelName == PageModelNamesClass.IndexPageModel)
+            {
+                Input = new InputModel
+                {
+                    PageModel = page,
+                    IndexPageModel = (IndexPageModel)_db.PageModel.FirstOrDefault(p => p.Id == Id),
+                };
+            }
+            else if (page.PageModelName == PageModelNamesClass.ProductPageModel)
+            {
+                Input = new InputModel
+                {
+                    PageModel = page,
+                    ProductPageModel = (ProductPageModel)_db.PageModel.FirstOrDefault(p => p.Id == Id)
+                };
+            }
+
 
             return Page();
         }
