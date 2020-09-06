@@ -47,8 +47,6 @@ namespace WebStore.Pages.Admin.Products
         public IFormFile Upload5 { get; set; }
 
         public ProductModel product;
-        public string[] DescriptionList;
-        public string[] AdditionalInformationList;
 
         [BindProperty]
         public InputModel Input { get; set; }
@@ -63,8 +61,6 @@ namespace WebStore.Pages.Admin.Products
             {
                 ProductModel = _db.ProductModel.FirstOrDefault(p => p.Id == Id)
         };
-            DescriptionList = Input.ProductModel.Description.Split("<br>");
-            AdditionalInformationList = Input.ProductModel.AdditionalInformation.Split("<br>");
 
 
             return Page();
