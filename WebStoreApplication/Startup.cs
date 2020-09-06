@@ -77,7 +77,7 @@ namespace WebStore
                 endpoints.MapRazorPages();
             });
             CreateRoles(serviceProvider).Wait();
-            Directory.CreateDirectory("/Products");
+            DirectoryInfo result = Directory.CreateDirectory(@"wwwroot\Products");
 
         }
         private async Task CreateRoles(IServiceProvider serviceProvider)
