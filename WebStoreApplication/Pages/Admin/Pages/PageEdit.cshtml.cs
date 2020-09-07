@@ -109,6 +109,10 @@ namespace WebStore.Pages.Admin.Pages
 
                     IndexPageModel.HeaderPhotoPath = Path.Combine(@"\Images", Path.GetFileName(file));
                 }
+                else
+                {
+                    IndexPageModel.HeaderPhotoPath = Input.IndexPageModel.HeaderPhotoPath;
+                }
 
                 _db.PageModel.Update(IndexPageModel);
             var page2 = _db.PageModel.FirstOrDefault(p => p.Id == Id);
