@@ -107,7 +107,7 @@ namespace WebStore.Pages.Admin.Pages
                             await Upload.CopyToAsync(fileStream);
                     }
 
-                    IndexPageModel.HeaderPhotoPath = Path.Combine("\Images", Path.GetFileName(file));
+                    IndexPageModel.HeaderPhotoPath = Path.Combine(@"\Images", Path.GetFileName(file));
                 }
 
                 _db.PageModel.Update(IndexPageModel);
