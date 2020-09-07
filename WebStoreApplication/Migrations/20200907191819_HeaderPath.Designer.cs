@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebStore.Data;
 
 namespace WebStore.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200907191819_HeaderPath")]
+    partial class HeaderPath
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -499,13 +501,11 @@ Quisque ut luctus odio. Fusce a massa semper, ullamcorper justo ac, porttitor ve
                     b.HasData(
                         new
                         {
-                            Id = "7aade161-59ac-4fbd-9274-48ba3a25ff64",
+                            Id = "c6f02432-1794-4d4e-8d4f-05987d7aebf9",
                             LayoutNumber = 1,
                             PageModelName = "IndexPageModel",
                             PageName = "Index",
-                            HeaderDescription = "Default Description Placeholder",
                             HeaderPhotoPath = "https://insidesmallbusiness.com.au/wp-content/uploads/2018/04/brad-header-placeholder.png",
-                            HeaderTitle = "Default Title",
                             TopProductName1 = "Default Product 1",
                             TopProductName2 = "Default Product 2",
                             TopProductName3 = "Default Product 3",
@@ -524,7 +524,7 @@ Quisque ut luctus odio. Fusce a massa semper, ullamcorper justo ac, porttitor ve
                     b.HasData(
                         new
                         {
-                            Id = "bd79b0d2-0e17-4fcd-9097-2cdf1fd55c01",
+                            Id = "0f33d86a-5dbe-46bf-9f40-d6220818464c",
                             LayoutNumber = 1,
                             PageModelName = "ProductPageModel",
                             PageName = "ProductPage"

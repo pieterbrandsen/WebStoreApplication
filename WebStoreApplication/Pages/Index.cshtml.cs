@@ -19,7 +19,7 @@ namespace WebStore.Pages
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ApplicationDbContext _db;
-        private IndexPageModel IndexPage;
+        public IndexPageModel IndexPage;
         private ProductModel Product;
         public List<ProductModel> TopProductList = new List<ProductModel>();
         public List<ProductModel> TrendingProductList = new List<ProductModel>();

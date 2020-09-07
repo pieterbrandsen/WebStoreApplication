@@ -2,38 +2,56 @@
 @model IndexModel
 @{ ViewData["Title"] = "Home page"; }
 
-
-<div class="indexProductContainer">
-
-    @if (Model.TopProductList != null)
-    {
-<h3>Our Top Selling Products</h3> foreach (var product in Model.TopProductList)
-                {
-<div class="indexProductDisplay">
-    <a href="/Products/ProductPage/@product.Title">
-        <div>
-            <img class="indexProductDisplayImage" src="@product.FilePath" />
-            <p class="indexProductDisplayText">@product.Title</p>
-            <p class="indexProductDisplayText">$ @product.Price</p>
+<style>
+    .headerBackgroundImg {
+        /*background-image: url("https://amymhaddad.s3.amazonaws.com/morocco-blue.png");*/
+        background-image: url("@Model.IndexPage.HeaderPhotoPath");
+        background-repeat: no-repeat;
+        /*        background-attachment: fixed;*/
+        background-size: 100% 100%;
+    }
+</style>
+<header>
+    <img />
+    <div class="headerBackgroundImg">
+        <div class="flex-column">
+            <h2>@Model.IndexPage.HeaderTitle</h2>
+            <h4>@Model.IndexPage.HeaderDescription</h4>
         </div>
-    </a>
-</div>}
-}
-    <br style="clear: both;" />
-    <br />
-    <br />
-    @if (Model.TrendingProductList != null)
+    </div>
+</header>
+
+<div class="flex-row">
+@if (Model.TopProductList != null)
+{
+    <h3>Our Top Selling Products</h3> 
+    foreach (var product in Model.TopProductList)
     {
-<h3>Our Top Trending Products</h3> foreach (var product in Model.TrendingProductList)
-                {
-<div class="indexProductDisplay">
-    <a href="/Products/ProductPage/@product.Title">
-        <div>
-            <img class="indexProductDisplayImage" src="@product.FilePath" />
-            <p class="indexProductDisplayText">@product.Title</p>
-            <p class="indexProductDisplayText">$ @product.Price</p>
+        <div class="indexProductDisplay">
+            <a href="/Products/ProductPage/@product.Title">
+                <img class="indexProductDisplayImage" src="@product.FilePath" />
+                <p class="indexProductDisplayText">@product.Title</p>
+                <p class="indexProductDisplayText">$ @product.Price</p>
+            </a>
         </div>
-    </a>
-</div>}
+    }
 }
-    <br style="clear: both;" />
+</div>
+<br />
+<br />
+<div class="flex-row">
+@if (Model.TrendingProductList != null)
+{
+    <h3>Our Top Trending Products</h3> 
+    foreach (var product in Model.TrendingProductList)
+    {
+        <div class="indexProductDisplay">
+            <a href="/Products/ProductPage/@product.Title">
+                <img class="indexProductDisplayImage" src="@product.FilePath" />
+                <p class="indexProductDisplayText">@product.Title</p>
+                <p class="indexProductDisplayText">$ @product.Price</p>
+            </a>
+        </div>
+    }
+}
+</div>

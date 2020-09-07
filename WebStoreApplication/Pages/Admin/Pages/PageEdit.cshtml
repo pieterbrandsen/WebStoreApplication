@@ -27,6 +27,24 @@
     </div>
     @if (Model.Input.PageModel.PageModelName == PageModelNamesClass.IndexPageModel)
     {
+        <h5>Header</h5>
+        <div class="form-group">
+            <label asp-for="Input.IndexPageModel.HeaderTitle"></label>
+            <input asp-for="Input.IndexPageModel.HeaderTitle" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Input.IndexPageModel.HeaderDescription"></label>
+            <input asp-for="Input.IndexPageModel.HeaderDescription" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label style="font-size:20px"><b>Header Photo</b></label><br />
+            <label>Current photo</label><br />
+            <img style="max-height:10%; max-width:10%" src="@Model.Input.IndexPageModel.HeaderPhotoPath" /><br />
+            <label>Overwrite photo with</label><br />
+            <input type="file" asp-for="Upload" class="form-control-file" />
+            <input type="text" asp-for="Input.IndexPageModel.HeaderPhotoPath" class="form-control" />
+        </div>
+        <h5>Product Title's</h5>
         <div class="form-group">
             <label asp-for="Input.IndexPageModel.TopProductName1"></label>
             <input type="text" asp-for="Input.IndexPageModel.TopProductName1" class="form-control" />

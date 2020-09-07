@@ -10,6 +10,13 @@ namespace WebStore.Models
 {
     public class IndexPageModel : PagesModel
     {
+        // Header //
+        [DisplayName("Header Title")]
+        public string HeaderTitle { get; set; }
+        public string HeaderDescription { get; set; }
+        public string HeaderPhotoPath { get; set; }
+
+        // Products Titles's //
         [DisplayName("Top Product List")]
         public string TopProductName1 { get; set; }
         public string TopProductName2 { get; set; }
@@ -18,7 +25,6 @@ namespace WebStore.Models
         public string TrendingProductName1 { get; set; }
         public string TrendingProductName2 { get; set; }
         public string TrendingProductName3 { get; set; }
-        public string HeaderPhoto { get; set; }
 
 
     }

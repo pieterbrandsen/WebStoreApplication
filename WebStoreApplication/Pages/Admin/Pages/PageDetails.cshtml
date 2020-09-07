@@ -33,25 +33,41 @@
     </tr>
     @if (Model.Input.IndexPageModel != null)
     {
-<tr>
-    <th>
-        Header Path
-    </th>
-    <td>
-        <img style="max-width: 100%" src="@Model.Input.IndexPageModel.HeaderPhoto"/>
-        Path: @Model.Input.IndexPageModel.HeaderPhoto
-    </td>
-</tr>
-<tr>
-    <th>
-        Top Product List
-    </th>
-    <td>
-        @Model.Input.IndexPageModel.TopProductName1<br />
-        @Model.Input.IndexPageModel.TopProductName2<br />
-        @Model.Input.IndexPageModel.TopProductName3
-    </td>
-</tr>
+        <tr>
+            <th>
+                Header Title
+            </th>
+            <td>
+                @Model.Input.IndexPageModel.HeaderTitle
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Header Description
+            </th>
+            <td>
+                @Model.Input.IndexPageModel.HeaderDescription
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Header Path
+            </th>
+            <td>
+                <img style="max-width: 100%" src="@Model.Input.IndexPageModel.HeaderPhotoPath" />
+                Path: @Model.Input.IndexPageModel.HeaderPhotoPath
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Top Product List
+            </th>
+            <td>
+                @Model.Input.IndexPageModel.TopProductName1<br />
+                @Model.Input.IndexPageModel.TopProductName2<br />
+                @Model.Input.IndexPageModel.TopProductName3
+            </td>
+        </tr>
         <tr>
             <th>
                 Trending Product List
