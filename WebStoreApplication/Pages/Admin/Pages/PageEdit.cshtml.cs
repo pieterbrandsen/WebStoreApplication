@@ -87,6 +87,7 @@ namespace WebStore.Pages.Admin.Pages
                 IndexPageModel.HeaderTitle = Input.IndexPageModel.HeaderTitle;
                 IndexPageModel.HeaderDescription = Input.IndexPageModel.HeaderDescription;
                 IndexPageModel.HeaderTextColor = Input.IndexPageModel.HeaderTextColor;
+                IndexPageModel.HeaderDividerColor = Input.IndexPageModel.HeaderDividerColor;
 
                 // Product Title's //
                 IndexPageModel.TopProductName1 = Input.IndexPageModel.TopProductName1;

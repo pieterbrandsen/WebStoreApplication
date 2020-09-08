@@ -33,7 +33,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue eros id vest
 
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<IndexPageModel>().HasData(
-                new IndexPageModel { Id = Guid.NewGuid().ToString(), PageName = "Index", LayoutNumber = 1, PageModelName = PageModelNamesClass.IndexPageModel, HeaderPhotoPath = "https://insidesmallbusiness.com.au/wp-content/uploads/2018/04/brad-header-placeholder.png", TopProductName1 = "Default Product 1", TopProductName2 = "Default Product 2", TopProductName3 = "Default Product 3", TrendingProductName1 = "Default Product 4", TrendingProductName2 = "Default Product 5", TrendingProductName3 = "Default Product 6", HeaderTitle = "Default Title", HeaderDescription="Default Description Placeholder", HeaderTextColor = "#000000" }) ;
+                new IndexPageModel { Id = Guid.NewGuid().ToString(), PageName = "Index", LayoutNumber = 1, PageModelName = PageModelNamesClass.IndexPageModel, HeaderPhotoPath = "https://insidesmallbusiness.com.au/wp-content/uploads/2018/04/brad-header-placeholder.png", TopProductName1 = "Default Product 1", TopProductName2 = "Default Product 2", TopProductName3 = "Default Product 3", TrendingProductName1 = "Default Product 4", TrendingProductName2 = "Default Product 5", TrendingProductName3 = "Default Product 6", HeaderTitle = "Default Title", HeaderDescription="Default Description Placeholder", HeaderTextColor = "#000000", HeaderDividerColor = "#000000" }) ;
             modelBuilder.Entity<ProductPageModel>().HasData(
                 new ProductPageModel { Id = Guid.NewGuid().ToString(), PageName = "ProductPage", LayoutNumber = 1, PageModelName = PageModelNamesClass.ProductPageModel }
             );

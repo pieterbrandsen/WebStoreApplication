@@ -41,6 +41,10 @@
             <input style="color:@Model.Input.IndexPageModel.HeaderTextColor" asp-for="Input.IndexPageModel.HeaderTextColor" class="form-control" />
         </div>
         <div class="form-group">
+            <label>Header Divider Color (Hex Color Format)</label>
+            <input style="color:@Model.Input.IndexPageModel.HeaderDividerColor" asp-for="Input.IndexPageModel.HeaderDividerColor" class="form-control" />
+        </div>
+        <div class="form-group">
             <label style="font-size:20px"><b>Header Photo</b></label><br />
             <label>Current photo</label><br />
             <img style="max-height:10%; max-width:10%" src="@Model.Input.IndexPageModel.HeaderPhotoPath" /><br />
