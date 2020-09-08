@@ -51,33 +51,41 @@
         </tr>
         <tr>
             <th>
-                Header Path
+                Header Color
             </th>
-            <td>
-                <img style="max-width: 100%" src="@Model.Input.IndexPageModel.HeaderPhotoPath" />
-                Path: @Model.Input.IndexPageModel.HeaderPhotoPath
+            <td style = "color:@Model.Input.IndexPageModel.HeaderTextColor">
+                @Model.Input.IndexPageModel.HeaderTextColor
             </td>
         </tr>
-        <tr>
-            <th>
-                Top Product List
-            </th>
-            <td>
-                @Model.Input.IndexPageModel.TopProductName1<br />
-                @Model.Input.IndexPageModel.TopProductName2<br />
-                @Model.Input.IndexPageModel.TopProductName3
-            </td>
-        </tr>
-        <tr>
-            <th>
-                Trending Product List
-            </th>
-            <td>
-                @Model.Input.IndexPageModel.TrendingProductName1<br />
-                @Model.Input.IndexPageModel.TrendingProductName2<br />
-                @Model.Input.IndexPageModel.TrendingProductName3
+<tr>
+    <th>
+        Header Path
+    </th>
+    <td>
+        <img style="max-width: 100%" src="@Model.Input.IndexPageModel.HeaderPhotoPath" />
+        Path: @Model.Input.IndexPageModel.HeaderPhotoPath
+    </td>
+</tr>
+<tr>
+    <th>
+        Top Product List
+    </th>
+    <td>
+        @Model.Input.IndexPageModel.TopProductName1<br />
+        @Model.Input.IndexPageModel.TopProductName2<br />
+        @Model.Input.IndexPageModel.TopProductName3
+    </td>
+</tr>
+<tr>
+    <th>
+        Trending Product List
+    </th>
+    <td>
+        @Model.Input.IndexPageModel.TrendingProductName1<br />
+        @Model.Input.IndexPageModel.TrendingProductName2<br />
+        @Model.Input.IndexPageModel.TrendingProductName3
 
-            </td>
-        </tr>
-    }
+    </td>
+</tr>
+}
 </table>

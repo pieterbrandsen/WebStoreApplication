@@ -4,22 +4,24 @@
 
 <style>
     .headerBackgroundImg {
-        /*background-image: url("https://amymhaddad.s3.amazonaws.com/morocco-blue.png");*/
         background-image: url("@Model.IndexPage.HeaderPhotoPath");
         background-repeat: no-repeat;
-        /*        background-attachment: fixed;*/
-        background-size: 100% 100%;
+        background-size: cover;
+        text-align:center;
+        width: 100%;
+        color: @Model.IndexPage.HeaderTextColor;
+        padding: 25px;
+        margin-bottom: 7.5%;
     }
 </style>
-<header>
-    <img />
-    <div class="headerBackgroundImg">
-        <div class="flex-column">
-            <h2>@Model.IndexPage.HeaderTitle</h2>
-            <h4>@Model.IndexPage.HeaderDescription</h4>
-        </div>
+
+<div class="headerBackgroundImg">
+    <div class="flex-column">
+        <h2>@Model.IndexPage.HeaderTitle</h2>
+        <hr style="border:solid; border-width: 3px; width: 20%" />
+        <h4>@Model.IndexPage.HeaderDescription</h4>
     </div>
-</header>
+</div>
 
 <div class="flex-row">
 @if (Model.TopProductList != null)

@@ -14,6 +14,7 @@ namespace WebStore.Models
         [DisplayName("Header Title")]
         public string HeaderTitle { get; set; }
         public string HeaderDescription { get; set; }
+        public string HeaderTextColor { get; set; }
         public string HeaderPhotoPath { get; set; }
 
         // Products Titles's //

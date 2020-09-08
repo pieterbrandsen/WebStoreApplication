@@ -97,7 +97,7 @@ namespace WebStore.Pages.Admin.Products
                         await Upload.CopyToAsync(fileStream);
                 }
 
-                product.FilePath = Path.Combine(@"\Products", product.Title, Path.GetFileName(file));
+                product.FilePath = Path.Combine("/Products", product.Title, Path.GetFileName(file));
             }
 
 
@@ -110,7 +110,7 @@ namespace WebStore.Pages.Admin.Products
                         await Upload2.CopyToAsync(fileStream);
                 }
 
-                product.FilePath2 = Path.Combine(@"\Products", product.Title, Path.GetFileName(file));
+                product.FilePath2 = Path.Combine("/Products", product.Title, Path.GetFileName(file));
             }
 
 
@@ -123,7 +123,7 @@ namespace WebStore.Pages.Admin.Products
                         await Upload3.CopyToAsync(fileStream);
                 }
 
-                product.FilePath3 = Path.Combine(@"\Products", product.Title, Path.GetFileName(file));
+                product.FilePath3 = Path.Combine("/Products", product.Title, Path.GetFileName(file));
             }
 
 
@@ -136,7 +136,7 @@ namespace WebStore.Pages.Admin.Products
                         await Upload4.CopyToAsync(fileStream);
                 }
 
-                product.FilePath4 = Path.Combine(@"\Products", product.Title, Path.GetFileName(file));
+                product.FilePath4 = Path.Combine("/Products", product.Title, Path.GetFileName(file));
             }
 
 
@@ -149,9 +149,14 @@ namespace WebStore.Pages.Admin.Products
                         await Upload5.CopyToAsync(fileStream);
                 }
 
-                product.FilePath5 = Path.Combine(@"\Products", product.Title, Path.GetFileName(file));
+                product.FilePath5 = Path.Combine("/Products", product.Title, Path.GetFileName(file));
             }
 
+            product.FilePath = product.FilePath.Replace(@"\", "/");
+            product.FilePath2 = product.FilePath2.Replace(@"\", "/");
+            product.FilePath3 = product.FilePath3.Replace(@"\", "/");
+            product.FilePath4 = product.FilePath4.Replace(@"\", "/");
+            product.FilePath5 = product.FilePath5.Replace(@"\", "/");
 
 
             _db.ProductModel.Update(product);

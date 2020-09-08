@@ -69,7 +69,7 @@ namespace WebStore.Pages.Admin.Products
                             await Upload.CopyToAsync(fileStream);
                     }
 
-                    productList.Add(Path.Combine(@"\Products", Title, Path.GetFileName(file)));
+                    productList.Add(Path.Combine("/Products", Title, Path.GetFileName(file)));
                 }
 
 
@@ -82,7 +82,7 @@ namespace WebStore.Pages.Admin.Products
                             await Upload2.CopyToAsync(fileStream);
                     }
 
-                    productList.Add(Path.Combine(@"\Products", Title, Path.GetFileName(file)));
+                    productList.Add(Path.Combine("/Products", Title, Path.GetFileName(file)));
                 }
 
 
@@ -95,7 +95,7 @@ namespace WebStore.Pages.Admin.Products
                             await Upload3.CopyToAsync(fileStream);
                     }
 
-                    productList.Add(Path.Combine(@"\Products", Title, Path.GetFileName(file)));
+                    productList.Add(Path.Combine("/Products", Title, Path.GetFileName(file)));
                 }
 
 
@@ -108,7 +108,7 @@ namespace WebStore.Pages.Admin.Products
                             await Upload4.CopyToAsync(fileStream);
                     }
 
-                    productList.Add(Path.Combine(@"\Products", Title, Path.GetFileName(file)));
+                    productList.Add(Path.Combine("/Products", Title, Path.GetFileName(file)));
                 }
 
 
@@ -121,7 +121,7 @@ namespace WebStore.Pages.Admin.Products
                             await Upload5.CopyToAsync(fileStream);
                     }
 
-                    productList.Add(Path.Combine(@"\Products", Title, Path.GetFileName(file)));
+                    productList.Add(Path.Combine("/Products", Title, Path.GetFileName(file)));
                 }
 
                 for (int i = 0; i < 5; i++)
@@ -130,6 +130,8 @@ namespace WebStore.Pages.Admin.Products
                     {
                         productList.Add(null);
                     }
+
+                    productList[i] = productList[i].Replace(@"\", "/");
                 }
 
                 var newProduct = new ProductModel { Id = Guid.NewGuid().ToString(), Title = Title, Description = Description, Price = Price, FilePath = productList[0], FilePath2 = productList[1], FilePath3 = productList[2], FilePath4 = productList[3], FilePath5 = productList[4] };

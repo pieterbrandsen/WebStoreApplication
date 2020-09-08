@@ -86,6 +86,7 @@ namespace WebStore.Pages.Admin.Pages
                 // Header //
                 IndexPageModel.HeaderTitle = Input.IndexPageModel.HeaderTitle;
                 IndexPageModel.HeaderDescription = Input.IndexPageModel.HeaderDescription;
+                IndexPageModel.HeaderTextColor = Input.IndexPageModel.HeaderTextColor;
 
                 // Product Title's //
                 IndexPageModel.TopProductName1 = Input.IndexPageModel.TopProductName1;
@@ -107,17 +108,17 @@ namespace WebStore.Pages.Admin.Pages
                             await Upload.CopyToAsync(fileStream);
                     }
 
-                    IndexPageModel.HeaderPhotoPath = Path.Combine(@"\Images", Path.GetFileName(file));
+                    IndexPageModel.HeaderPhotoPath = Path.Combine("/Images", Path.GetFileName(file));
                 }
                 else
                 {
                     IndexPageModel.HeaderPhotoPath = Input.IndexPageModel.HeaderPhotoPath;
                 }
 
+                IndexPageModel.HeaderPhotoPath = IndexPageModel.HeaderPhotoPath.Replace(@"\", "/");
+
                 _db.PageModel.Update(IndexPageModel);
-            var page2 = _db.PageModel.FirstOrDefault(p => p.Id == Id);
                 _db.SaveChanges();
-            var page3 = _db.PageModel.FirstOrDefault(p => p.Id == Id);
 
             }
             else if (page.PageModelName == PageModelNamesClass.ProductPageModel)
